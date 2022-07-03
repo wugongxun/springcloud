@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: order-consumer-nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.100.85.66:8848
+service-url:
+  nacos-user-service: http://payment-provider-nacos
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

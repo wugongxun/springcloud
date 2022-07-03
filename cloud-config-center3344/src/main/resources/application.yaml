@@ -1,0 +1,40 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          #github上的仓库地址
+          #github用不了，用gitee
+          uri: https://gitee.com/wu-gongxun/springcloud-config.git
+          username: 2297665453@qq.com
+          password: w1999g1117x
+          search-paths:
+            - springcloud-config
+          force-pull: true
+        default-label: master
+  #rabbitmq相关配置
+  rabbitmq:
+    host: 47.100.85.66
+    port: 5672
+    username: admin
+    password: wgx
+#暴露bus刷新配置端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: config3344
+    prefer-ip-address: true
+
